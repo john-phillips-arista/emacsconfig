@@ -1,0 +1,91 @@
+(use-package iedit :ensure t)
+(use-package project-planning
+  :config
+  (progn
+    (global-set-key (kbd "<s-XF86TouchpadToggle>") #'open-dashboard)))
+
+
+(use-package vterm
+  :ensure t
+  :config (progn
+	    (setf vterm-shell (executable-find "bash"))))
+
+(global-set-key (kbd "M-H") 'windmove-left)
+(global-set-key (kbd "M-L") 'windmove-right)
+(global-set-key (kbd "M-K") 'windmove-up)
+(global-set-key (kbd "M-J") 'windmove-down)
+
+(use-package org :ensure t
+  :config
+  (setq org-babel-load-languages
+	'((emacs-lisp . t)
+	  (lisp . t)
+	  (C . t)
+	  (scheme . t))))
+(add-to-list 'org-mode-hook
+	     'auto-fill-mode)
+(setq org-todo-keywords
+      '((sequence "TODO" "INPROGRESS" "|" "DONE" "WAITING")))
+(use-package tex-mode
+  :ensure t
+  :config
+  (add-to-list 'latex-mode-hook #'flyspell-mode))
+
+(require 'eshell)
+(require 'em-term)
+(setq eshell-destroy-buffer-when-process-dies t)
+
+
+(use-package all-the-icons
+  :ensure t)
+
+(use-package pdf-tools
+  :ensure t
+  :config
+  (pdf-tools-install)
+  (add-hook 'pdf-view-mode-hook 'auto-revert-mode)
+  (setf mailcap-user-mime-data
+	'(((viewer . pdf-view-mode) (type . "application/pdf") (test . window-system)))))
+
+(use-package treemacs
+  :ensure t
+  :bind
+  (:map global-map
+	("M-0" . treemacs-select-window)))
+(use-package epg :ensure t)
+(use-package pinentry
+  :ensure t
+  :config
+  (progn
+    (setq epg-pinentry-mode
+	  'loopback)
+    (pinentry-start)))
+
+(require 'treemacs-addons)
+(use-package magit :ensure t
+  :config
+  (progn
+    (setq magit-refresh-status-buffer nil)
+    ))
+
+(setq magit-refresh-buffers nil)
+(use-package treemacs-magit :ensure t
+  :after treemacs magit)
+
+
+;;(defvar preferred-font
+;;  "-UKWN-Latin Modern Mono-normal-normal-normal-*-*-*-*-*-*-0-iso10646-1")
+
+;; (add-to-list 'default-frame-alist `(font . ,preferred-font))
+;; (set-face-attribute 'default t :font preferred-font)
+
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
+(put 'list-threads 'disabled nil)
+
+(use-package yasnippet :ensure t
+  :config (yas-global-mode 1))
+(use-package yasnippet-snippets :ensure t)
+
+
+
