@@ -9,7 +9,7 @@
 
 (setf x-alt-keysym 'meta)
 (setq auth-sources '((:source "~/.authinfo.gpg")))
-(push (f-expand "~/.local/bin") exec-path)
+(load-local "locals-pre.el")
 (load-local "packaging-config.el")
 (use-package f :ensure t)
 (require 'f)
@@ -18,9 +18,10 @@
 (use-package tree-sitter :ensure t)
 (use-package tree-sitter-langs :ensure t)
 ;; (tre-esitter-require 'cxx)
-
+(push (f-expand "~/.local/bin") exec-path)
 (load-local "exwm-config.el")
 (load-local "lsp-config.el")
+(load-local "golang.el")
 (load-local "projectile-config.el")
 (load-local "cxx-config.el")
 (load-local "common-lisp-config.el")
@@ -127,7 +128,7 @@
  '(send-mail-function 'smtpmail-send-it))
 
 
-(load-local "locals.el")
+(load-local "locals-post.el")
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
