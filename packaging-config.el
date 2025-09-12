@@ -6,4 +6,5 @@
 (setf package-user-dir "~/.cache/elpa")
 (setf package-gnupghome-dir "~/.cache/elpa/gnupg")
 (package-initialize)
+(package-install 'use-package)
 (require 'use-package)

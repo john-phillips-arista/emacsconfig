@@ -22,7 +22,9 @@
 (load-local "exwm-config.el")
 (load-local "lsp-config.el")
 (load-local "projectile-config.el")
+(load-local "python-config.el")
 (load-local "cxx-config.el")
+;; (load-local "scheme-config.el")
 (load-local "common-lisp-config.el")
 (load-local "look-and-feel.el")
 (load-local "misc-config.el")
@@ -122,7 +124,7 @@
  '(helm-completion-style 'emacs)
  '(org-agenda-files '("~/agenda.org" "~/grad-school.org"))
  '(package-selected-packages
-   '(gptel common-lisp-snippets tree-sitter-langs tree-sitter flycheck-clang-tidy transpose-frame gruvbox-theme haskell-mode bison-mode ag yasnippet-snippets yasnippet-classic-snippets paredit clojure-snippets howdoyou pcap-mode clang-format geiser-racket geiser-guile nov highlight-parentheses auctex counsel gnuplot-mode erefactor cov basic-ide elpher iedit :emms emms pyvenv helm-dictionary dictionary pinentry geiser company-mode helm-config all-the-icons treemacs-magit treemacs company magit lsp-ui cmake-mode lsp-jedi jinja2-mode vterm vlf nasm-mode rust-mode pdf-tools hydra exwm slack jedi use-package helm-projectile lsp-clangd ccls helm slime-repl ac-slime slime-company slime ac-cider cider sql-indent emacsql-mysql emacsql rjsx-mode web-mode clojure-mode groovy-mode php-mode markdown-mode rainbow-delimiters yaml-mode vue-mode tide go-mode))
+   '(common-lisp-snippets tree-sitter-langs tree-sitter flycheck-clang-tidy transpose-frame gruvbox-theme haskell-mode bison-mode ag yasnippet-snippets yasnippet-classic-snippets paredit clojure-snippets howdoyou pcap-mode clang-format geiser-racket geiser-guile nov highlight-parentheses auctex counsel gnuplot-mode erefactor cov basic-ide elpher iedit :emms emms pyvenv helm-dictionary dictionary pinentry geiser company-mode helm-config all-the-icons treemacs-magit treemacs company magit lsp-ui cmake-mode lsp-jedi jinja2-mode vterm vlf nasm-mode rust-mode pdf-tools hydra exwm slack jedi use-package helm-projectile lsp-clangd ccls helm slime-repl ac-slime slime-company slime ac-cider cider sql-indent emacsql-mysql emacsql rjsx-mode web-mode clojure-mode groovy-mode php-mode markdown-mode rainbow-delimiters yaml-mode vue-mode tide go-mode))
  '(python-check-command "python3 -m flake8")
  '(send-mail-function 'smtpmail-send-it))
 

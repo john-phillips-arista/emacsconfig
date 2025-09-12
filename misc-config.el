@@ -1,8 +1,4 @@
 (use-package iedit :ensure t)
-(use-package project-planning
-  :config
-  (progn
-    (global-set-key (kbd "<s-XF86TouchpadToggle>") #'open-dashboard)))
 
 
 (use-package vterm
@@ -47,11 +43,6 @@
   (setf mailcap-user-mime-data
 	'(((viewer . pdf-view-mode) (type . "application/pdf") (test . window-system)))))
 
-(use-package treemacs
-  :ensure t
-  :bind
-  (:map global-map
-	("M-0" . treemacs-select-window)))
 (use-package epg :ensure t)
 (use-package pinentry
   :ensure t
@@ -61,7 +52,7 @@
 	  'loopback)
     (pinentry-start)))
 
-(require 'treemacs-addons)
+
 (use-package magit :ensure t
   :config
   (progn
@@ -85,6 +76,26 @@
 
 (use-package yasnippet :ensure t
   :config (yas-global-mode 1))
+
+(use-package popper
+  :ensure t ; or :straight t
+  :bind (("C-c `"   . popper-toggle)
+         ("C-M-`"   . popper-cycle)
+         ("C-M-`" . popper-toggle-type))
+  :init
+  (setq popper-reference-buffers
+        '("\\*vterm.*\\*"
+          "\\*eshell\\*"
+          "\\*Gemini\\*"
+          "\\*Go Test\\*"
+          "\\*aider.*\\*"
+          "\\*Async Shell Command\\*"
+          help-mode
+          compilation-mode))
+  (popper-mode +1)
+  (popper-echo-mode +1))
+
+
 (use-package yasnippet-snippets :ensure t)
 
 
