@@ -29,6 +29,7 @@
 (load-local "misc-config.el")
 (load-local "termswitch-mode.el")
 (termswitch-mode +1)
+(load-local "rust-config.el")
 (load-local "counsel.el")
 (load-local "ai.el")
 (display-time)
