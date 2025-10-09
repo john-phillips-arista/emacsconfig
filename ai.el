@@ -1,3 +1,4 @@
+
 (defun get-model-and-key ()
   (let ((gemini-key (getenv "GEMINI_API_KEY"))
 	(claude-key (getenv "ANTHROPIC_API_KEY")))
@@ -13,13 +14,15 @@
     (let* ((model-and-key (get-model-and-key))
 	   (model (car model-and-key)))
       (cond
-       ((eq? model 'claude)
+       ((eql model 'claude)
 	(setq aider-args
-	      '("--model" "sonnet"
+	      `("--model" "sonnet"
+		"--editor" ,(concat "emacsclient -s " server-name)
 		"--no-auto-accept-architect")))
-       ((eq? model 'gemini)
+       ((eql model 'gemini)
 	(setq aider-args
-	      '("--model" "gemini"
+	      `("--model" "gemini"
+		"--editor" ,(concat "emacsclient -s " server-name)
 		"--no-auto-accept-architect")))))
     
     (push (f-expand "~/.local/bin") exec-path)
@@ -37,10 +40,11 @@
   (let* ((model-and-key (get-model-and-key))
 	 (model (car model-and-key))
 	 (key (cadr model-and-key)))
+    
     (cond
      ((eql model 'gemini)
       (setq
-       gptel-model 'gemini-2.5-pro-exp-03-25
+       gptel-model 'gemini-2.5-pro
        gptel-backend (gptel-make-gemini "Gemini"
 					:key key
 					:stream t)))
@@ -50,5 +54,7 @@
        gptel-backend (gptel-make-anthropic "Claude"
 					:key key
 					:stream t))))
+
+    (setq gptel-include-reasoning nil)
     (global-set-key (kbd "C-c a c") 'gptel)
     (global-set-key (kbd "C-c a m") 'gptel-menu)))
