@@ -4,7 +4,10 @@
 (use-package vterm
   :ensure t
   :config (progn
-	    (setf vterm-shell (executable-find "bash"))))
+	    (setf vterm-shell (or
+			       (executable-find "zsh")
+			       (executable-find "bash")
+			       (executable-find "sh")))))
 
 (global-set-key (kbd "M-H") 'windmove-left)
 (global-set-key (kbd "M-L") 'windmove-right)
