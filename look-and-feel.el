@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (use-package gruvbox-theme :ensure t)
 
 (defvar my-themes

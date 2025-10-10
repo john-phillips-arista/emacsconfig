@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (defvar sensible-c-style '("K&R"
 			 (c-basic-offset . 2)
 			 (c-offsets-alist

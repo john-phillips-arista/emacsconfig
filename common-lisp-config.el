@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (cl-loop for extra-dir in '("lisp")
 	 do
 	 (add-to-list 'load-path (f-expand (format "~/.emacs.d/%s" extra-dir))))

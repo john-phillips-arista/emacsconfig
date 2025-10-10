@@ -1,13 +1,15 @@
+;; -*- lexical-binding: t; -*-
 (defvar do-gofmt-p t)
 
 (defun my-go-save-hook ()
   (interactive)
   (when do-gofmt-p
-    (gofmt-before-save)))
+    (gofmt)))
 
 (defun my-go-mode-hook ()
   (push 'go-golint flycheck--automatically-enabled-checkers)
   (setq tab-width 4)
+  (flycheck-add-next-checker 'lsp 'go-vet)  
   (add-hook 'before-save-hook
 	    'my-go-save-hook))
 
@@ -31,7 +33,7 @@
                                  go-imports-paths)
                            (executable-find "goimports"))))
           (setq gofmt-command found-path))
-    (flycheck-add-next-checker 'lsp 'go-vet)
+
     (add-hook 'go-mode-hook
 	      'lsp)
     (add-hook 'go-mode-hook

@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (defvar term-scratch-buffer-re (rx "*vterm*<scr/" (group (one-or-more digit)) ">"))
 (defvar term-buffer-re (rx "*vterm*"))
 
