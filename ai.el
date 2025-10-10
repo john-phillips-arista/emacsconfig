@@ -59,3 +59,5 @@
     (setq gptel-include-reasoning nil)
     (global-set-key (kbd "C-c a c") 'gptel)
     (global-set-key (kbd "C-c a m") 'gptel-menu)))
+
+

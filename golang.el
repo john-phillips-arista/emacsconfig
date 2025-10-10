@@ -20,6 +20,7 @@
 (use-package govet :ensure t)
 (use-package golint :ensure t)
 (setf go-mode-hook nil)
+
 (use-package go-mode
   :ensure t
   :config
