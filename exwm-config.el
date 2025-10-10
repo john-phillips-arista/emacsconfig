@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (defun raise-volume ()
   (interactive)
   (call-process "amixer" nil nil nil "set" "Master" "5%+"))

@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (defun load-local (filename)
   (let* ((home (getenv "HOME"))
 	 (full-path (concat home "/.emacs.d/" filename)))
@@ -17,8 +18,9 @@
 (use-package magit :ensure t)
 (use-package tree-sitter :ensure t)
 (use-package tree-sitter-langs :ensure t)
-;; (tre-esitter-require 'cxx)
+
 (push (f-expand "~/.local/bin") exec-path)
+
 (load-local "exwm-config.el")
 (load-local "lsp-config.el")
 (load-local "golang.el")
@@ -37,6 +39,18 @@
 
 (load-local "locals-post.el")
 
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(aider all-the-icons clang-format clipetty cmake-mode company counsel
+	   denote-sequence exwm flycheck-clang-tidy go-mode golint
+	   gotest govet gptel gruvbox-theme iedit lsp-ui paredit
+	   pcap-mode pdf-tools pinentry popper projectile ruff-format
+	   slime tree-sitter-langs treemacs-magit use-package vterm
+	   yasnippet-snippets)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

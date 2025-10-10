@@ -1,21 +1,24 @@
+;; -*- lexical-binding: t; -*-
 
 (defun my/python-flycheck-setup ()
   "Set up Flycheck for Python with virtualenv support."
   ;; This function finds and activates the virtualenv for the current project.
-  (flycheck-python-setup-virtualenv))
+  (flycheck-add-next-checker 'lsp 'python-mypy)
+  (ruff-format-on-save-mode +1))
 
 
-(use-package python-mode
+(use-package python
   :config
   (progn
     (with-eval-after-load 'flycheck
-      (flycheck-add-next-checker 'lsp 'python-mypy)
+      (with-eval-after-load 'lsp-mode
+	(add-hook 'python-mode-hook 'my/python-flycheck-setup)))
       (add-hook 'python-mode-hook 'flycheck-mode))
     (with-eval-after-load 'lsp-mode
-      (add-hook 'python-mode-hook 'lsp))))
+      (add-hook 'python-mode-hook 'lsp)))
 
 (use-package flycheck :ensure t)
-
+(use-package ruff-format :ensure t)
 ;; fix the flycheck checker
 (flycheck-define-checker python-mypy
   "Mypy syntax and type checker.  Requires mypy>=0.730.

@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 
 (defun get-model-and-key ()
   (let ((gemini-key (getenv "GEMINI_API_KEY"))
