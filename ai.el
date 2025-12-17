@@ -60,6 +60,7 @@
     (global-set-key (kbd "C-c a c") 'gptel)
     (global-set-key (kbd "C-c a m") 'gptel-menu)))
 
+
 (use-package inheritenv
   :vc (:url "https://github.com/purcell/inheritenv" :rev :newest))
 

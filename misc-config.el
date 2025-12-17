@@ -1,6 +1,8 @@
 ;; -*- lexical-binding: t; -*-
 (use-package iedit :ensure t)
 
+(add-hook 'prog-mode-hook
+	  'display-line-numbers-mode)
 
 (use-package vterm
   :ensure t
@@ -99,6 +101,9 @@
   (popper-mode +1)
   (popper-echo-mode +1))
 
+;; Minor mode 
+(load "buffkeys.el")
+(buffkeys-mode 1)
 
 (use-package yasnippet-snippets :ensure t)
 

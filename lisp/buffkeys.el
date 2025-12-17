@@ -3,11 +3,13 @@
     (define-key map (kbd "M-H") 'windmove-left)
     (define-key map (kbd "M-L") 'windmove-right)
     (define-key map (kbd "M-J") 'windmove-down)
-    (define-key map (kbd "M-K") 'windmove-up)))
+    (define-key map (kbd "M-K") 'windmove-up)
+    map))
 
 (define-minor-mode buffkeys-mode
   "Minor mode for buffer-switching keys."
   :lighter " BK"
-  :keymap buffkeys-mode-keymap)
+  :keymap buffkeys-mode-keymap
+  :global t)
 
 (provide 'buffkeys-mode)

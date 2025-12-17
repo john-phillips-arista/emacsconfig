@@ -1,3 +1,6 @@
 [submodule "emacs"]
 	path = emacs
 	url = https://github.com/emacs-mirror/emacs.git
+[submodule "hy-mode"]
+	path = hy-mode
+	url = ssh://git@github.com/john-w-phillips/hy-mode.git
