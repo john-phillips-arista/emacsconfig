@@ -59,3 +59,12 @@
     (setq gptel-include-reasoning nil)
     (global-set-key (kbd "C-c a c") 'gptel)
     (global-set-key (kbd "C-c a m") 'gptel-menu)))
+
+(use-package inheritenv
+  :vc (:url "https://github.com/purcell/inheritenv" :rev :newest))
+
+(use-package claude-code :ensure t
+  :vc (:url "https://github.com/stevemolitor/claude-code.el" :rev :newest)
+  :config
+   (claude-code-mode)
+   :bind-keymap ("C-c c" . claude-code-command-map))

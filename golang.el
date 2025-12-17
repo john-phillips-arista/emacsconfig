@@ -3,15 +3,16 @@
 
 (defun my-go-save-hook ()
   (interactive)
-  (when do-gofmt-p
+  (when (and do-gofmt-p (eql major-mode 'go-mode))
     (gofmt)))
 
 (defun my-go-mode-hook ()
   (push 'go-golint flycheck--automatically-enabled-checkers)
   (setq tab-width 4)
-  (flycheck-add-next-checker 'lsp 'go-vet)  
+  (flycheck-add-next-checker 'lsp 'go-vet)
   (add-hook 'before-save-hook
 	    'my-go-save-hook))
+
 
 (if (f-exists? (f-expand "~/go/bin/gopls"))
     (setf lsp-gopls-server-path
@@ -35,9 +36,9 @@
           (setq gofmt-command found-path))
 
     (add-hook 'go-mode-hook
-	      'lsp)
-    (add-hook 'go-mode-hook
-	      #'my-go-mode-hook)))
+	      #'my-go-mode-hook)
+        (add-hook 'go-mode-hook
+	      'lsp)))
 
 (use-package gotest :ensure t
   :config
