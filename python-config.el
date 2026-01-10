@@ -10,6 +10,7 @@
 (use-package python
   :config
   (progn
+    (setq python-fill-docstring-style 'pep-257-nn)
     (with-eval-after-load 'flycheck
       (with-eval-after-load 'lsp-mode
 	(add-hook 'python-mode-hook 'my/python-flycheck-setup)))

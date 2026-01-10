@@ -36,10 +36,11 @@
 (load-local "ai.el")
 (load-local "python-config.el")
 (display-time)
-(server-start)
+;; (server-start)
 
 (load-local "locals-post.el")
 
 
 
 (load-local "locals-post.el")
+(use-package json-mode :ensure t)
