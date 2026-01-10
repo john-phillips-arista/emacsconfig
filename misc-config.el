@@ -12,6 +12,13 @@
 			       (executable-find "bash")
 			       (executable-find "sh")))))
 
+(use-package eat
+  :ensure t
+  :config (progn
+	    (define-key eat-semi-char-mode-map (kbd "M-L") nil)
+	    (define-key eat-semi-char-mode-map (kbd "M-H") nil)
+	    (define-key eat-semi-char-mode-map (kbd "M-K") nil)
+	    (define-key eat-semi-char-mode-map (kbd "M-J") nil)))
 (global-set-key (kbd "M-H") 'windmove-left)
 (global-set-key (kbd "M-L") 'windmove-right)
 (global-set-key (kbd "M-K") 'windmove-up)
